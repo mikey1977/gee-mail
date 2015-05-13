@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<script src="js/mail-generator.js"></script>
@@ -6,13 +7,143 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+
+setInterval(function(){ alert ("getNewMessage"); "300"};
+
+table {
+	border: 5px solid black
+	padding: 10px
+}
+
+
+$(document).ready(main);
         
       };
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
+
+
+			<form action="" method="post" id="login" novalidate="novalidate">
+				<h3>Login</h3>
+
+					<div id="form-content">
+						<fieldset>
+							<div class="fieldgroup"
+								<label for="username">User ID</label>
+								<input type="text" name="username"/>
+							</div>
+
+							<div class="fieldgroup">
+								<label for="password">Password</label>
+								<input type="password" name="password"/>
+							</div>
+
+							<div class="fieldgroup">
+								<input type="submit" value="Login" class="submit"/>
+							</div>
+
+						</fieldset>
+					</div>
+			</form>
+
+
+
+		</div>
+
+				<div>	
+					<div class="row">
+						<div class="col-md-4">
+							<h3>Sort by</h3>
+								<p><a href="#">Inbox</a></p>
+								<p><a href="#">Sent</a></p>
+								<P><a href="#">Saved</a></p>
+								<P><a href="#">Trash</a></p>
+
+						</div>
+
+						<div>
+							<table class="sortable" border="1" width="100%">
+								<caption><em><h1>E-mails</h1></em></caption>
+									<tr>
+										<th><a href="#">#</th>
+										<th><a href="#">Date</th>
+										<th><a href="#">Sender</th>
+										<th><a href="#">Subject</th>
+									</tr>
+									<tr>
+										<th> #1	
+
+											<td>Date #1</td>
+											<td>Sender #1</td>
+											<td>Subject #1</td>
+										</th>
+									</tr>
+									<tr>
+
+										<th> #2
+											<td>Date #2</td>
+											<td>Sender #2</td>
+											<td>Subject #2</td>
+										</th>
+
+									</tr>
+									<tr>
+
+										<th> #3
+											<td>Date #3</td>
+											<td>Sender #3</td>
+											<td>Subject #3</td>
+										</th>
+									</tr>
+					</div>
+				
+
+				</div>
+			</div>
+
+			<div class="btn">
+				<p>
+				
+					<a href="mailto: example@geemail.com?
+						subject=Re:&body=Re:"><img src="C://users/Mikey/Desktop/devleague/reply.gif" /></a>
+				</p>
+			</div>
+
+
+//how do I put the REPLY button within a clicked-on message instead of the inbox?//
+
+			<div>
+
+				</button></p>
+			</div>
+
+			<div class="btn">
+				<a href="#"><image src="C://users/Mikey/Desktop/devleague/trash.gif" /></a>
+
+			</div>
+
+			<div class="btn">
+				<a href="#"><image src="C://users/Mikey/Desktop/devleague/new.gif" /></a>
+			</div>
+
+			<div class="box">    
+        			<label for="qty"><abbr title="Messages">Total Messages</abbr></label>
+        			<input id="qty" value="0" />
+        			<button id="down" onclick="modify_qty(-1)">-1</button>
+        			<button id="up" onclick="modify_qty(1)">+1</button>
+    			</div>
+
+
+			<div class="app-box">
+				<div class="reminder">
+					<p class="app-title">Unread</p>
+						<div class="notifications">#</div>
+					<p class="app-title">Total</p>
+						<div class="notifications">#</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
