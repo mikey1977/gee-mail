@@ -9,15 +9,163 @@
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         console.log("working?!");
 
+for (var i = 0; i < geemails.length; i++){
+
+  var mail = geemails[i];
+  var date = mail["date"];
+
+}  
+
+
+//Sender
+
+var newSender = document.createElement("td");
+
+var senderText = document.createTextNode(sender);
+
+
+var contentDiv = document.getElementById("table");
+
+var divSender = document.createElement("td");
+
+senderText = document.createTextNode(sender);
+
+divSender.appendChild(senderText);
+
+contentDiv.appendChild(divSender);
+
+
+
+
+
+
+
+
+//Subject
+
+var newSubject = document.createElement("td");
+
+var subjectText = document.createTextNode(subject);
+
+
+
+var contentDiv = document.getElementById("table");
+
+var divSubject = document.createElement("td");
+
+subjectText = document.createTextNode(subject);
+
+divSubject.appendChild(subjectText);
+
+contentDiv.appendChild(divSubject);
+
+
+
+
+//Body
+
+var newBody = document.createElement("p");
+
+var bodyText = document.createTextNode(body);
+
+
+
+
+
+var contentDiv = document.getElementById("aside");
+
+var divBody = document.createElement("p");
+
+bodyText = document.createTextNode(body);
+
+divBody.appendChild(bodyText);
+
+contentDiv.appendChild(divBody);
+
         
+        
+
+
+        
+        
+//Date
+
+var newDate = document.createElement("td");
+
+var dateText = document.createTextNode(date);
+
+
+
+
+
+
+var contentDiv = document.getElementById("table");
+
+var divDate = document.createElement("td");
+
+dateText = document.createTextNode(date);
+
+divDate.appendChild(dateText);
+
+contentDiv.appendChild(divDate);
+
+      
+    
+
       };
     </script>
 	</head>
 	<body>
 		<div class="container" id="main">
 			Build Me!
+			  <h1>Gee MAil</h1>
+  
+				<div class="nav">
+
+					<ul class="nav nav-pills">
+						<li class="active"><a href="#">Inbox</a></li>
+						<li><a href="#">Sent</a></li>
+						<li><a href="#">Trash</a></li>
+					</ul>
+		
+				</div>
+
+
+  				<div id="sort"> 
+
+      				<table border="2px" id="table">
+        				<thead>
+          					<th>Sender</th>
+          					<th>Subject</th>
+          					<th>Date</th>
+        				</thead>
+        				<tbody class="table">
+          					<tr>
+
+
+
+          					</tr>
+        				</tbody>
+      				</table>
+      
+
+
+				</div>
+  
+  
+				<div class="jumbotron">
+
+      				<aside id="aside">
+        				<p class="sender"></p>
+        				<p class="subject"></p>
+        				<p class="body"></p>
+        				<p class="date"></p>
+      				</aside>
+
+
+				</div>
 
 		
-		</div>
-	</body>
+	</div>
+</body>
 </html>
