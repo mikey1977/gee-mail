@@ -9,110 +9,47 @@
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         console.log("working?!");
 
+
+
+
 for (var i = 0; i < geemails.length; i++){
-
   var mail = geemails[i];
+  var sender = mail["sender"];
+  var subject = mail["subject"];
+  var body = mail["body"];
   var date = mail["date"];
-
-}  
-
-
-//Sender
-
-var newSender = document.createElement("td");
-
-var senderText = document.createTextNode(sender);
-
-
-var contentDiv = document.getElementById("table");
-
-var divSender = document.createElement("td");
-
-senderText = document.createTextNode(sender);
-
-divSender.appendChild(senderText);
-
-contentDiv.appendChild(divSender);
+}
 
 
 
+function drawTable(tbody) {
+    var tr, td;
+    tbody = document.getElementById(tbody);
+    // loop through data source
+    for (var i = 0; i < geemails.length; i++) {
+        tr = tbody.insertRow(tbody.rows.length);
+        td = tr.insertCell(tr.cells.length);
+        td.setAttribute("align", "center");
+        td.innerHTML = geemails[i].sender;
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = geemails[i].subject;
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = geemails[i].date;
+
+    }
+}
+
+drawTable("mailData");
+
+txt = document.createTextNode(oneRecord.getElementsByTagName("sender")[0].
+   firstChild.nodeValue);
+td.appendChild(txt);
 
 
 
+}
 
 
-//Subject
-
-var newSubject = document.createElement("td");
-
-var subjectText = document.createTextNode(subject);
-
-
-
-var contentDiv = document.getElementById("table");
-
-var divSubject = document.createElement("td");
-
-subjectText = document.createTextNode(subject);
-
-divSubject.appendChild(subjectText);
-
-contentDiv.appendChild(divSubject);
-
-
-
-
-//Body
-
-var newBody = document.createElement("p");
-
-var bodyText = document.createTextNode(body);
-
-
-
-
-
-var contentDiv = document.getElementById("aside");
-
-var divBody = document.createElement("p");
-
-bodyText = document.createTextNode(body);
-
-divBody.appendChild(bodyText);
-
-contentDiv.appendChild(divBody);
-
-        
-        
-
-
-        
-        
-//Date
-
-var newDate = document.createElement("td");
-
-var dateText = document.createTextNode(date);
-
-
-
-
-
-
-var contentDiv = document.getElementById("table");
-
-var divDate = document.createElement("td");
-
-dateText = document.createTextNode(date);
-
-divDate.appendChild(dateText);
-
-contentDiv.appendChild(divDate);
-
-      
-    
-
-      };
     </script>
 	</head>
 	<body>
@@ -133,20 +70,17 @@ contentDiv.appendChild(divDate);
 
   				<div id="sort"> 
 
-      				<table border="2px" id="table">
-        				<thead>
-          					<th>Sender</th>
-          					<th>Subject</th>
-          					<th>Date</th>
-        				</thead>
-        				<tbody class="table">
-          					<tr>
-
-
-
-          					</tr>
-        				</tbody>
-      				</table>
+    <table id="mail" border="1">
+      <thead>
+         <tr>
+           <th>Sender</th>
+           <th>Subject</th>
+           <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="mailData">
+      </tbody>
+  </table>
       
 
 

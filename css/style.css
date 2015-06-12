@@ -1,0 +1,41 @@
+li {
+	font-size: 14px;
+	border: 2px solid black;
+	border-radius: 5px;
+	display: block;
+	width: 50px;
+	text-align: center;
+	background-color: yellow;
+}
+
+
+li:hover {
+	color: red;
+	font-weight: bold;
+	text-decoration: none;
+
+}
+
+
+
+table {
+	border: 5px solid black;
+	text-align: center;
+	width: 100%;
+
+}
+
+
+.nav nav-pills {
+	height: 100px;
+	width: 100px;
+}
+
+tr:hover {
+	color: blue;
+	font-weight: bold;
+}
+
+tr:visited {
+	color: gray;
+}
