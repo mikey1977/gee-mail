@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script src="js/mail-generator.js"></script>
-		<link href="css/style.css" rel="stylesheet" media="screen">
+  <head>
+    <script src="js/mail-generator.js"></script>
+    <link href="css/style.css" rel="stylesheet" media="screen">
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-        console.log("working?!");
+        
 
 
 
+  
 
 for (var i = 0; i < geemails.length; i++){
   var mail = geemails[i];
@@ -18,7 +19,15 @@ for (var i = 0; i < geemails.length; i++){
   var subject = mail["subject"];
   var body = mail["body"];
   var date = mail["date"];
+
+
 }
+
+
+
+
+
+
 
 
 
@@ -35,71 +44,118 @@ function drawTable(tbody) {
         td.innerHTML = geemails[i].subject;
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = geemails[i].date;
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = geemails[i].body;
+        td = tr.insertCell(tr.cells.length);
 
     }
+
 }
+
+
+
 
 drawTable("mailData");
 
-txt = document.createTextNode(oneRecord.getElementsByTagName("sender")[0].
+txt = document.createTextNode(oneRecord.getElementsByTagName("mail")[0].
    firstChild.nodeValue);
 td.appendChild(txt);
 
 
-
 }
 
 
-    </script>
-	</head>
-	<body>
-		<div class="container" id="main">
-			Build Me!
-			  <h1>Gee MAil</h1>
+
+
+function showMessage() {
+  document.getElementById("aside").innerHTML = geemails[i];
+  }
+    
+
+
+
+           var asc1 = 1,
+            asc2 = 1,
+            asc3 = 1;
+
+        
+
+        function sort_table(tbody, col, asc) {
+            var rows = tbody.rows,
+                rlen = rows.length,
+                arr = new Array(),
+                i, j, cells, clen;
+
+            // fill array from table
+            for (i = 0; i < rlen; i++) {
+                cells = rows[i].cells;
+                clen = cells.length;
+                arr[i] = new Array();
+                for (j = 0; j < clen; j++) {
+                    arr[i][j] = cells[j].innerHTML;
+                }
+            }
+            // sort array by column and asc
+            arr.sort(function (a, b) {
+                return (a[col] == b[col]) ? 0 : ((a[col] > b[col]) ? asc : -1 * asc);
+            });
+            // replace rows with rows from sorted array
+            for (i = 0; i < rlen; i++) {
+                rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";
+            }
+        }
+
+
+
+
+
+</script>
+
+  </head>
+  <body>
+    <div class="container" id="main">
+      Build Me!
+        <h1>Gee MAil</h1>
   
-				<div class="nav">
+        <div class="nav">
 
-					<ul class="nav nav-pills">
-						<li class="active"><a href="#">Inbox</a></li>
-						<li><a href="#">Sent</a></li>
-						<li><a href="#">Trash</a></li>
-					</ul>
-		
-				</div>
+          <ul class="nav nav-pills" id="menu">
+            <li class="active"><a href="#">Inbox</a></li>
+            <li><a href="#">Sent</a></li>
+            <li><a href="#">Trash</a></li>
+          </ul>
+    
+        </div>
 
 
-  				<div id="sort"> 
+          <div id="sort"> 
 
-    <table id="mail" border="1">
+    <table id="mail" border="1" class="tablesorter">
       <thead>
          <tr>
-           <th>Sender</th>
-           <th>Subject</th>
-           <th>Date</th>
+           <th onclick="sort_table(mailData, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">Sender</th>
+           <th onclick="sort_table(mailData, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">Subject</th>
+           <th onclick="sort_table(mailData, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1">Date</th>
+           <th >Body</th>
         </tr>
       </thead>
-      <tbody id="mailData">
+      <tbody id="mailData" onclick="showMessage()">
+        <tr>
+          <td class="sender"></td>
+          <td class="subject"></td>
+          <td class="date"></td>
+        </tr>
+        <tr>
+          <td class="body"></td>
+        </tr>
       </tbody>
   </table>
       
 
 
-				</div>
-  
-  
-				<div class="jumbotron">
-
-      				<aside id="aside">
-        				<p class="sender"></p>
-        				<p class="subject"></p>
-        				<p class="body"></p>
-        				<p class="date"></p>
-      				</aside>
 
 
-				</div>
 
-		
-	</div>
+  </div>
 </body>
 </html>

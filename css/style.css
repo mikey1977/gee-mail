@@ -1,4 +1,5 @@
-li {
+
+#menu li{
 	font-size: 14px;
 	border: 2px solid black;
 	border-radius: 5px;
@@ -9,7 +10,7 @@ li {
 }
 
 
-li:hover {
+#menu li:hover {
 	color: red;
 	font-weight: bold;
 	text-decoration: none;
@@ -23,6 +24,15 @@ table {
 	text-align: center;
 	width: 100%;
 
+
+	border-collapse: collapse;
+	border: none;
+
+}
+
+th {
+	background-color: gray;
+	cursor: pointer;
 }
 
 
@@ -38,4 +48,13 @@ tr:hover {
 
 tr:visited {
 	color: gray;
+}
+
+
+tbody.body {
+	visibility: hidden;
+}
+
+tbody.sender.subject.date {
+	visibility: block;
 }
