@@ -136,11 +136,11 @@ function showMessage() {
            <th onclick="sort_table(mailData, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">Sender</th>
            <th onclick="sort_table(mailData, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">Subject</th>
            <th onclick="sort_table(mailData, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1">Date</th>
-           <th >Body</th>
-        </tr>
+         </tr>
+
       </thead>
       <tbody id="mailData" onclick="showMessage()">
-        <tr>
+        <tr class="toggleBody">
           <td class="sender"></td>
           <td class="subject"></td>
           <td class="date"></td>
@@ -151,6 +151,7 @@ function showMessage() {
       </tbody>
   </table>
       
+<button onclick='document.getElementById("mailData").classList.toggle("hide4")'>Click me</button>
 
 
 

@@ -51,10 +51,6 @@ tr:visited {
 }
 
 
-tbody.body {
-	visibility: hidden;
-}
-
-tbody.sender.subject.date {
-	visibility: block;
+#mailData.hide4 tr > *:nth-child(4) {
+	display: none;
 }
