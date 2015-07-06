@@ -4,7 +4,7 @@
 	border: 2px solid black;
 	border-radius: 5px;
 	display: block;
-	width: 50px;
+	width: 60px;
 	text-align: center;
 	background-color: yellow;
 }
@@ -37,11 +37,11 @@ th {
 
 
 .nav nav-pills {
-	height: 100px;
-	width: 100px;
+	height: 150px;
+	width: 150px;
 }
 
-tr:hover {
+#mail tr:hover {
 	color: blue;
 	font-weight: bold;
 }
@@ -51,6 +51,16 @@ tr:visited {
 }
 
 
-#mailData.hide4 tr > *:nth-child(4) {
+table #tableB tr td:first-child, table #tableB tr td:nth-child(2), table #tableB tr td:nth-child(3) {
 	display: none;
+}
+
+table #mailData tr td:nth-child(4)  {
+	display: none;
+}
+
+span {
+	border: 2px solid black;
+	border-radius: 5px;
+
 }

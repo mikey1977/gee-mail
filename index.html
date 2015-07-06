@@ -24,8 +24,8 @@ for (var i = 0; i < geemails.length; i++){
 }
 
 
-
-
+var inboxCount = sender;
+inboxCount.length;
 
 
 
@@ -49,6 +49,13 @@ function drawTable(tbody) {
         td = tr.insertCell(tr.cells.length);
 
     }
+
+var source = document.getElementById('mailData');
+var destination = document.getElementById('tableB');
+var copy = source.cloneNode(true);
+copy.setAttribute('id', 'tableB');
+destination.parentNode.replaceChild(copy, destination);   
+
 
 }
 
@@ -120,7 +127,7 @@ function showMessage() {
         <div class="nav">
 
           <ul class="nav nav-pills" id="menu">
-            <li class="active"><a href="#">Inbox</a></li>
+            <li class="active"><a href="#">Inbox<span class="ui-li0count"></span></a></li>
             <li><a href="#">Sent</a></li>
             <li><a href="#">Trash</a></li>
           </ul>
@@ -128,35 +135,35 @@ function showMessage() {
         </div>
 
 
-          <div id="sort"> 
+        <div id="sort" class="child"> 
 
-    <table id="mail" border="1" class="tablesorter">
-      <thead>
-         <tr>
-           <th onclick="sort_table(mailData, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">Sender</th>
-           <th onclick="sort_table(mailData, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">Subject</th>
-           <th onclick="sort_table(mailData, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1">Date</th>
-         </tr>
+          <table id="mail" border="1" class="tablesorter">
+              <thead>
+                <tr>
+                    <th onclick="sort_table(mailData, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">Sender</th>
+                    <th onclick="sort_table(mailData, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">Subject</th>
+                    <th onclick="sort_table(mailData, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1">Date</th>
+                </tr>
 
-      </thead>
-      <tbody id="mailData" onclick="showMessage()">
-        <tr class="toggleBody">
-          <td class="sender"></td>
-          <td class="subject"></td>
-          <td class="date"></td>
-        </tr>
-        <tr>
-          <td class="body"></td>
-        </tr>
-      </tbody>
-  </table>
-      
-<button onclick='document.getElementById("mailData").classList.toggle("hide4")'>Click me</button>
+              </thead>
+              <tbody id="mailData">
+              </tbody>
+          </table>
+        </div>
 
-
+        <div class="child">
+          <table border="1" class="body">
+            <tr class="bod">
+              <tbody id = "tableB">
+              </tbody>
+            </tr>
+          </table>
+        </div>    
 
 
 
-  </div>
+
+
+    </div>
 </body>
 </html>
