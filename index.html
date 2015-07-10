@@ -24,14 +24,12 @@ for (var i = 0; i < geemails.length; i++){
 }
 
 
-var inboxCount = sender;
-inboxCount.length;
 
 
 
 
 
-function drawTable(tbody) {
+function myInbox(tbody) {
     var tr, td;
     tbody = document.getElementById(tbody);
     // loop through data source
@@ -39,8 +37,7 @@ function drawTable(tbody) {
         tr = tbody.insertRow(tbody.rows.length);
         td = tr.insertCell(tr.cells.length);
         td.setAttribute("align", "center");
-        td.innerHTML = "<input type='checkbox'>";
-        td = tr.insertCell(tr.cells.length);
+
         td.innerHTML = geemails[i].sender;
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = geemails[i].subject;
@@ -49,7 +46,9 @@ function drawTable(tbody) {
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = geemails[i].body;
         td = tr.insertCell(tr.cells.length);
-        td.innerHTML = "<button onclick='cloneRow()'>Show/Hide</button>";
+        td.innerHTML = "<input type='button' value='Delete' onclick='deleteRow(this)'>";
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = "<input type='button' value='showHide' onclick='cloneRow(this)'>";
 
     }
 
@@ -60,20 +59,16 @@ function drawTable(tbody) {
 
 
 
-drawTable("mailData");
-
-txt = document.createTextNode(oneRecord.getElementsByTagName("mail")[0].
-   firstChild.nodeValue);
-td.appendChild(txt);
-
-
-}
+myInbox("mailData");
 
 
 
 
-function showMessage() {
-  document.getElementById("aside").innerHTML = geemails[i];
+
+
+
+
+
   }
     
 
@@ -121,7 +116,11 @@ destination.parentNode.replaceChild(copy, destination);
         }
 
 
-
+function deleteRow(r) {
+  var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById('mail').deleteRow(i);        
+}      
+  
 
 
 </script>
@@ -133,14 +132,12 @@ destination.parentNode.replaceChild(copy, destination);
         <h1>Gee MAil</h1>
   
         <div class="nav">
-
-          <ul class="nav nav-pills" id="menu">
-            <li class="active"><a href="#">Inbox<span class="ui-li0count"></span></a></li>
-            <li><a href="#">Sent</a></li>
-            <li><a href="#">Trash</a></li>
-          </ul>
+<button onclick="myInbox()" id="inbox">Inbox</button>
+          <br>
+<button onclick="newMessages()">New</button>
     
         </div>
+
 
 
         <div id="sort" class="child"> 
@@ -148,11 +145,12 @@ destination.parentNode.replaceChild(copy, destination);
           <table id="mail" border="1" class="tablesorter">
               <thead>
                 <tr>
-                    <th></th>
+
                     <th onclick="sort_table(mailData, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">Sender</th>
                     <th onclick="sort_table(mailData, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">Subject</th>
                     <th onclick="sort_table(mailData, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1">Date</th>
                     <th></th>
+                    <th></th>                    
                 </tr>
 
               </thead>

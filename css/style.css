@@ -51,16 +51,18 @@ tr:visited {
 }
 
 
-table #tableB tr td:first-child, table #tableB tr td:nth-child(2), table #tableB tr td:nth-child(3),table #tableB tr td:nth-child(4) {
+table #tableB tr td:first-child, table #tableB tr td:nth-child(2), table #tableB tr td:nth-child(3), table #tableB tr td:nth-child(5), table #tableB tr td:nth-child(6) {
 	display: none;
 }
 
-table #mailData tr td:nth-child(5)  {
+table #mailData tr td:nth-child(4)  {
 	display: none;
 }
 
 span {
 	border: 2px solid black;
 	border-radius: 5px;
+	width: 20px;
+	position: right;
 
 }
