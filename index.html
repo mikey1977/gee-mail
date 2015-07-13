@@ -48,7 +48,7 @@ function myInbox(tbody) {
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = "<input type='button' value='Delete' onclick='deleteRow(this)'>";
         td = tr.insertCell(tr.cells.length);
-        td.innerHTML = "<input type='button' value='showHide' onclick='cloneRow(this)'>";
+        td.innerHTML = "<input type='button' value='showHide' onclick='cloneRow()'>";
 
     }
 
@@ -105,23 +105,34 @@ myInbox("mailData");
             }
 
 
-
-var source = document.getElementById('mailData');
-var destination = document.getElementById('tableB');
-var copy = source.cloneNode(true);
-copy.setAttribute('id', 'tableB');
-destination.parentNode.replaceChild(copy, destination);   
-
-
-        }
-
+     }
 
 function deleteRow(r) {
   var i = r.parentNode.parentNode.rowIndex;
-  document.getElementById('mail').deleteRow(i);        
-}      
+  document.getElementById('mail').deleteRow(i);
+
+
+  var j = r.cloneNode.rowIndex;
+  document.getElementById('mailBody').deleteRow(j);
+
+
+  
+} 
+function cloneRow() {
+
+
+var source = document.getElementById('mailData');
+var destination = document.getElementById('mailClone');
+var copy = source.cloneNode(true);
+copy.setAttribute('id', 'mailClone');
+destination.parentNode.replaceChild(copy, destination);  
+}
+ 
+cloneRow('mailData');
   
 
+
+               
 
 </script>
 
@@ -146,9 +157,9 @@ function deleteRow(r) {
               <thead>
                 <tr>
 
-                    <th onclick="sort_table(mailData, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">Sender</th>
-                    <th onclick="sort_table(mailData, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">Subject</th>
-                    <th onclick="sort_table(mailData, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1">Date</th>
+                    <th onclick="sort_table(mailData, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;" "sort_table(mailClone, 0, asc1); asc1 *= -1; asc2 = 1; asc3 = 1;">Sender</th>
+                    <th onclick="sort_table(mailData, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;" "sort_table(mailClone, 1, asc2); asc2 *= -1; asc3 = 1; asc1 = 1;">Subject</th>
+                    <th onclick="sort_table(mailData, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1" "sort_table(mailClone, 2, asc3); asc3 *= -1; asc1 = 1; asc2 = 1">Date</th>
                     <th></th>
                     <th></th>                    
                 </tr>
@@ -160,11 +171,10 @@ function deleteRow(r) {
         </div>
 
         <div class="child">
-          <table border="1" class="body">
-            <tr class="bod">
-              <tbody id = "tableB">
+          <table border="1" class="body" id="mailBody">
+
+              <tbody id = "mailClone">
               </tbody>
-            </tr>
           </table>
         </div>    
 
