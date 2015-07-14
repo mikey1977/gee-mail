@@ -1,21 +1,14 @@
 
-#menu li{
-	font-size: 14px;
-	border: 2px solid black;
-	border-radius: 5px;
-	display: block;
-	width: 60px;
-	text-align: center;
-	background-color: yellow;
-}
-
-
-#menu li:hover {
-	color: red;
+button:hover {
+	color: blue;
 	font-weight: bold;
-	text-decoration: none;
-
 }
+
+input:hover {
+	color: blue;
+	font-weight: bold;
+}
+
 
 
 
@@ -52,8 +45,9 @@ tr:visited {
 
 
 
-table #mailData tr td:nth-child(4)  {
+table #mailData tr td:nth-child(4), table #mailData tr td:nth-child(7)  {
 	display: none;
+
 }
 
 span {
@@ -62,4 +56,28 @@ span {
 	width: 20px;
 	float: right;
 
+}
+
+#mailClone tr td {
+  display: none;
+}
+
+#mailClone tr td:nth-child(1), #mailClone tr td:nth-child(2), #mailClone tr td:nth-child(3), #mailClone tr td:nth-child(4), #mailClone tr td:nth-child(7){
+  display: block;
+}
+
+
+
+#mailBody tr{
+	outline: black solid 1px;
+}
+
+#mailClone tr td:nth-child(4){
+  	background-color: yellow;
+}
+
+
+
+#mailClone tr td:nth-child(1), #mailClone tr td:nth-child(2), #mailClone tr td:nth-child(3) {
+	background-color: lightgray;
 }

@@ -31,6 +31,8 @@ for (var i = 0; i < geemails.length; i++){
 
 function myInbox(tbody) {
     var tr, td;
+
+
     tbody = document.getElementById(tbody);
     // loop through data source
     for (var i = 0; i < geemails.length; i++) {
@@ -48,8 +50,10 @@ function myInbox(tbody) {
         td = tr.insertCell(tr.cells.length);
         td.innerHTML = "<input type='button' value='Delete' onclick='deleteRow(this)'>";
         td = tr.insertCell(tr.cells.length);
-        td.innerHTML = "<input type='button' value='showHide' onclick='cloneRow()'>";
-
+        td.innerHTML = "<input type='button' value='Show' onclick='cloneRow()'>";
+        td = tr.insertCell(tr.cells.length);
+        td.innerHTML = "<input type='button' value='Hide' onclick='hideRow()'>";
+        td = tr.insertCell(tr.cells.length);
     }
 
 
@@ -103,7 +107,7 @@ myInbox("mailData");
             for (i = 0; i < rlen; i++) {
                 rows[i].innerHTML = "<td>" + arr[i].join("</td><td>") + "</td>";
             }
-
+  mailClone.innerHTML = " ";          
 
      }
 
@@ -115,9 +119,15 @@ function deleteRow(r) {
   var j = r.cloneNode.rowIndex;
   document.getElementById('mailBody').deleteRow(j);
 
-
+  mailClone.innerHTML = " ";
   
 } 
+
+function hideRow() {
+  
+  mailClone.innerHTML = " ";
+} 
+
 function cloneRow() {
 
 
@@ -125,7 +135,8 @@ var source = document.getElementById('mailData');
 var destination = document.getElementById('mailClone');
 var copy = source.cloneNode(true);
 copy.setAttribute('id', 'mailClone');
-destination.parentNode.replaceChild(copy, destination);  
+destination.parentNode.replaceChild(copy, destination);
+
 }
  
 cloneRow('mailData');
@@ -171,7 +182,7 @@ cloneRow('mailData');
         </div>
 
         <div class="child">
-          <table border="1" class="body" id="mailBody">
+          <table class="body" id="mailBody">
 
               <tbody id = "mailClone">
               </tbody>
